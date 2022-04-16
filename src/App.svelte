@@ -1,30 +1,26 @@
 <script>
-	export let name;
+	let name = 'world'
+	let value = "";
+
+	let count = 0;
+
+	function hello(e) {
+		value = e.target.value;
+	}
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<h1>Hello {name.toUpperCase()}!</h1>
+	<input type="text" value={value} on:keypress={hello}>
+	<div>{value}</div>
+	<hr>
+	<h2>{count}</h2>
+	<div>
+		<button on:click={() =>count++}>+</button>
+		<button on:click={() => count--}>-</button>
+	</div>
 </main>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+	
 </style>
